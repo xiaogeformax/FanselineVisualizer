@@ -258,6 +258,7 @@ class AudioVisualizer:
         quality_list = [1, 1, 2, 2, 4, 8]
         ratio = quality_list[quality]  # Antialiasing ratio
 
+        colorList = ["white","black",]
         line_thick = int(round(self.line_thick * ratio))
         line_thick_bold = int(round(self.line_thick * ratio * 1.5))
         line_thick_slim = int(round(self.line_thick * ratio / 2))
@@ -272,6 +273,7 @@ class AudioVisualizer:
         hist = np.clip(hist * amplify, 0, 1)
 
         for i in range(bins):  # Draw Spectrum
+            color_mode1 = colorList[ i%2]
             color = getColor(bins, i, color_mode, bright, saturation)
             if self.style == 0:  # Solid Line
                 line_points = [self.getAxis(bins, i, self.rad_min, ratio),

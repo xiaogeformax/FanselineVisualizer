@@ -292,6 +292,7 @@ class FanBlender:
             self.output_path = cvtFileName(os.path.join(output_path, filename), "mp4")
 
     def setText(self, text="", font="", relsize=None, text_color=(255, 255, 255, 255), text_glow=None):
+        text ="哈哈哈"
         self.text_bottom = text
         if not font:
             if os.path.exists(getPath("Source/font.otf")):
@@ -307,6 +308,7 @@ class FanBlender:
         if text_glow is not None:
             self._text_glow = text_glow
         self.font = font
+
 
     def setSpec(self, bins=None, lower=None, upper=None, color=None, bright=None, saturation=None, scalar=None,
                 smooth=None, style=None, linewidth=None, rotate=None, beat_detect=None, low_range=None):
@@ -401,8 +403,10 @@ class FanBlender:
             bg = openImage(self.bg_path, "RGB", [None])
             self.logofile = openImage(self.logo_path, "RGBA", [None])
 
-            if bg is None:
-                bg = image.copy()
+            #if bg is None:
+            #    bg = image.copy()
+
+
 
             if self.bg_mode < 0:
                 self.bg_img = Image.new("RGBA", (self.frame_width, self.frame_height), (0, 0, 0, 0))
